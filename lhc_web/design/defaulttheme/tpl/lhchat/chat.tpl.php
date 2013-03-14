@@ -1,17 +1,22 @@
+
 <div class="row">
 
-	<div class="columns eleven mobile-three">
+	<div class="columns ten mobile-three">
+	
 		<h2 id="status-chat"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h2>
+		
 	</div>
 
-	<div class="columns one mobile-one">
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
+	<div class="columns two mobile-one">
+		
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>	<br>
+		<div>
+		
+		</div>
 	</div>
-
+	
 </div>
-
-
-    <div id="messages" >
+    <div id="messages">
         <div class="msgBlock" id="messagesBlock"><?php foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg ) : ?>
             <?php if ($msg['user_id'] == 0) { ?>
             	<div class="message-row"><div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date('H:i:s',$msg['time']);} else { echo date('Y-m-d H:i:s',$msg['time']);}; ?></div><span class="usr-tit"><?php if (isset($chat_widget_mode) && $chat_widget_mode == true) : ?><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_green.png');?>" title="<?php echo htmlspecialchars($chat->nick)?>" alt="<?php echo htmlspecialchars($chat->nick)?>" /><?php else : ?><?php echo htmlspecialchars($chat->nick)?>:<?php endif;?>&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?></div>
@@ -26,7 +31,7 @@
     </div>
     <br>
     <div>
-        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your messsage')?>" id="CSChatMessage" ></textarea>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
             lhinst.addmsguser();
@@ -56,7 +61,13 @@
     lhinst.syncusercall();
 
     $(window).bind('beforeunload', function(){
-        lhinst.userclosedchat();
+       lhinst.userclosedchat();
     });
 
+</script>
+<script language="javascript" type="text/javascript"> 
+function closeWindow() { 
+window.open('','_self',''); 
+window.close(); 
+} 
 </script>

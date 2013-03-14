@@ -1268,7 +1268,7 @@
         <translation>Paskutinis aktyvumas</translation>
     </message>
     <message>
-        <source>Send message</source>
+        <source> message</source>
         <translation>Siųsti žinutę</translation>
     </message>
     <message>
@@ -1391,6 +1391,10 @@
 </context>
 <context>
     <name>chat/chat</name>
+	<message>
+        <source>Close</source>
+        <translation>Uždaryti</translation>
+    </message>
     <message>
         <source>Pending confirm</source>
         <translation>Laukiama patvirtinimo</translation>
